@@ -9,7 +9,6 @@ for i in range(n):
 
     processes.append([pid, arrival, burst])
 
-# Sort according to Arrival Time
 processes.sort(key=lambda x: x[1])
 
 current_time = 0
@@ -24,7 +23,6 @@ for p in processes:
     arrival = p[1]
     burst = p[2]
 
-    # If CPU is idle
     if current_time < arrival:
         current_time = arrival
 
@@ -38,15 +36,14 @@ for p in processes:
     # Waiting Time
     waiting = turnaround - burst
 
-    # Add for average calculation
+    # average calculation
     total_turnaround = total_turnaround + turnaround
     total_waiting = total_waiting + waiting
 
     print(pid, "\t", arrival, "\t", burst, "\t",
           completion, "\t", turnaround, "\t", waiting)
 
-
-# Calculate Average
+# Average
 avg_turnaround = total_turnaround / n
 avg_waiting = total_waiting / n
 
